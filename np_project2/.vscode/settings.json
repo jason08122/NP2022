@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "string": "cpp",
+        "*.tcc": "cpp",
+        "new": "cpp",
+        "sstream": "cpp",
+        "regex": "cpp",
+        "variant": "cpp",
+        "bitset": "cpp"
+    }
+}

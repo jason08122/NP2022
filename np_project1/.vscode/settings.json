@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "string_view": "cpp",
+        "regex": "cpp",
+        "new": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "valarray": "cpp",
+        "cctype": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp"
+    }
+}
