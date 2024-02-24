@@ -1,6 +1,3 @@
-[TOC]
-    
-
 # :pencil: HW 1 - NPShell
     
 ## Introduction
