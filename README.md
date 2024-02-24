@@ -9,7 +9,7 @@ The project include develope a shell named **npshell**, support the following fe
 3. Numbered Pipe
 4. File Redirection
 
----
+
 
 ## Execution of commands
 
@@ -48,7 +48,7 @@ The npshell parses the inputs and executes commands
     % aaa
     Unknown command: [aaa].
     ```
----
+
 
 ## Ordinary Pipe
 
