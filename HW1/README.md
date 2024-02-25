@@ -1,45 +1,88 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# :pencil: HW 1 - NPShell
+    
+## Introduction
+    
+The project include develope a shell named **npshell**, support the following features.
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+1. Execution of commands
+2. Ordinary Pipe
+3. Numbered Pipe
+4. File Redirection
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
 
----
 
-## Edit a file
+## Execution of commands
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+- **NPShell Behavior**
+The npshell parses the inputs and executes commands
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+    ```typescript
+    % ls
+    bin npshell test1.txt test2.txt test1.html 
+    ```
+- **Built-in Commands**
+    - **setenv**
+    ```typescript
+    % setenv PATH bin        # set PATH to bin
+    % setenv PATH bin:npbin  # set PATH to bin:npbin
+    ```
+    
+    - **printenv**
+    ```typescript
+    % printenv LANG
+    en_US.UTF-8
+    % printenv VAR1  # show nothing if the variable does not exist
+    % setenv VAR1 test
+    % printenv VAR1
+    test
+    ```
+    
+    - **exit**
+    Terminate npshell.
+- **Unknown Command**
 
----
+    Print the error message to **STDERR** with format: 
+    **Unknown command: [command]**.
 
-## Create a file
+    ```typescript
+    % aaa
+    Unknown command: [aaa].
+    ```
 
-Next, you’ll add a new file to this repository.
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+## Ordinary Pipe
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+```typescript
+#The output of the command "ls" acts as the input of the command "cat" 
+% ls | cat
+bin
+npshell
+test.html
+```
 
----
 
-## Clone a repository
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+## Numbered Pipe
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+**|N** means the **STDOUT** of the left hand side command will be piped to **the first command of the next N-th line**, where 1 <= N <= 100
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+```typescript
+% ls |2
+% set PATH bin
+% cat      # The output of "ls" acts as the input of "cat"
+bin
+npshell
+test.html
+```
+
+## File Redirection
+**Standard output redirection (cmd > file)**, which means the output of the command will be written to files.
+
+```typescript
+# The output of "ls" is redirected to file "hello.txt"
+% ls > hello.txt
+% cat hellow.txt
+bin
+npshell
+test.html
+```
